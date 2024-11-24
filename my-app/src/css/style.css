@@ -1,0 +1,15 @@
+.leftdiv{
+    display:flex;
+    width:20%;
+    height:100vh;
+}
+.middlediv{
+    display: flex;
+    width:20%;
+    height:100vh;
+}
+.rightdiv{
+    display:flex;
+    width:55%;
+    height:100vh;
+}
