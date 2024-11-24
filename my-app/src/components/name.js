@@ -1,4 +1,4 @@
-export default function names(props){
+export default function Name(props) {
     return (
         <div>
             <table border="1px">
@@ -8,13 +8,11 @@ export default function names(props){
                     </tr>
                 </thead>
                 <tbody>
-                    {
-                        props.animals.map( animal=>(
-                            <td>{animal.name}</td>
-                        ))
-                    }
+                    <tr>
+                        <td>{props.animalName}</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
-    )
+    );
 }

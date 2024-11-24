@@ -1,33 +1,39 @@
+import React, { useState, useEffect } from 'react';
 import './App.css';
-import {animals} from './data/AnimalsDb'
-import name from './components/name'
-import pictures from './components/pictures'
-import result from './components/result'
+import { animals } from './data/AnimalsDb';
+import Name from './components/name';
+import Pictures from './components/pictures';
+import Result from './components/result';
+import './css/style.css';
 
 function App() {
+  const [randomAnimal, setRandomAnimal] = useState(null);
+  const [result, setResult] = useState(""); 
+
+  useEffect(() => {
+    const randomIndex = Math.floor(Math.random() * animals.length);
+    setRandomAnimal(animals[randomIndex]);
+  }, []);
+
+  const handleSelection = (animalName) => {
+    if (animalName === randomAnimal.name) {
+      setResult("Win");
+    } else {
+      setResult("Lose");
+    }
+  };
+
   return (
     <div>
-      <h2>Animal maching game</h2>
+      <h2>Animal Matching Game</h2>
       <div className="leftdiv">
-        <table>
-          <tr>
-            <result/>
-          </tr>
-        </table>
+        <Result result={result} />
       </div>
       <div className="middlediv">
-        <table>
-          <tr>
-          <name/>
-          </tr>
-        </table>
+        {randomAnimal && <Name animalName={randomAnimal.name} />}
       </div>
-      <div classname="rightdiv">
-        <table>
-          <tr>
-            <pictures/>
-          </tr>
-        </table>
+      <div className="rightdiv">
+        <Pictures animals={animals} handleSelection={handleSelection} />
       </div>
     </div>
   );

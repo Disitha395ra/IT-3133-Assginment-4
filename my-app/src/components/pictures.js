@@ -1,4 +1,4 @@
-export default function pictures(props){
+export default function Pictures(props) {
     return (
         <div>
             <table border="1px">
@@ -8,17 +8,20 @@ export default function pictures(props){
                     </tr>
                 </thead>
                 <tbody>
-                    {
-                        props.animals.map(animal=>(
-                            <tr rowspan="10">
-                                <td>
-                                    <img src={require('../images/1.jpg')} alt="animal-pictures" />
-                                </td>
-                            </tr>
-                        ))
-                    }
+                    <tr>
+                        {props.animals.map((animal) => (
+                            <td key={animal.name}>
+                                <img
+                                    src={require(`../images/${animal.img}`)} 
+                                    alt={animal.name}
+                                    onClick={() => props.handleSelection(animal.name)} 
+                                    style={{ width: "100px", height: "100px", cursor: "pointer" }}
+                                />
+                            </td>
+                        ))}
+                    </tr>
                 </tbody>
             </table>
         </div>
-    )
+    );
 }
