@@ -1,7 +1,7 @@
 export default function names(props){
     return (
         <div>
-            <table>
+            <table border="1px">
                 <thead>
                     <tr>
                         <td>Animal Name</td>

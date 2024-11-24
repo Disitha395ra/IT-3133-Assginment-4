@@ -7,10 +7,14 @@ function App() {
     <div>
       <h2>Animal maching game</h2>
       <div className="leftdiv">
-        
+
       </div>
       <div className="middlediv">
+        <table>
+          <tr>
           <name/>
+          </tr>
+        </table>
       </div>
       <div classname="rightdiv">
 
